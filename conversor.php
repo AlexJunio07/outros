@@ -2,7 +2,7 @@
 <html lang="pt-br">
 
 <head>
-    <meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>API - Dinheiro</title>
 </head>
@@ -53,10 +53,10 @@
         }
 
         if (!$maiusculas) {
-            $return = $rt ? $rt : "zero";
+            $return = $rt ? $rt : "ZERO";
         } else {
             if ($rt) $rt = preg_replace("[^A-Za-z0-9]", "", ucwords($rt));
-            $return = ($rt) ? ($rt) : "Zero";
+            $return = ($rt) ? ($rt) : "ZERO";
         }
 
         if (!$maiusculas) {
@@ -65,11 +65,11 @@
             return strtoupper($return);
         }
     }
-    
+
     $valores = (object)array();
-    $valores->valor = number_format($_GET["valor"],2,",",".");
+    $valores->valor = number_format($_GET["valor"], 2, ",", ".");
     $valores->extenso = strtoupper(extenso($_GET["valor"]));
-     echo $result = json_encode($valores);
+    echo $result = json_encode($valores);
     ?>
 
 
